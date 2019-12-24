@@ -1,0 +1,11 @@
+with open("file1.log", "r") as my_file:
+    for line in my_file:
+        string = line.split(".")
+        for line in string:
+                #print(line)
+            string=line.split(";")
+            for linr in string:
+                string=line.split(":")
+                
+            print(string)
+    
