@@ -1,3 +1,4 @@
+
 print("Enter 1 to add data.")
 print("Enter 2 to update .")
 print("Enter 3 to delete.")
@@ -20,7 +21,7 @@ def add():
                                             #and apending data instead of write the data
 
         f1.write(roll)
-        f1.write(":")
+        f1.write(";")
         f1.write(name)
         f1.write(";")
         f1.write(add)
@@ -33,23 +34,37 @@ def add():
 def showall():
     f2=open("file1.log","r")
     s=f2.read()
-    s=s.replace(":","\t")
+    s=s.replace(";","\t")
     s=s.replace(";","\t")
     s=s.replace(".","\n")
     print(s)
 
 
 def search():
+    search=input("enter the number to be searched : ")
+    flag=0
+
     with open("file1.log", "r") as my_file:
         for line in my_file:
             string = line.split(".")
             for line in string:
-                #print(line)
                 string=line.split(";")
-                print(string)
-        
-    
+                print(line)
+                for line in string:
+                #print(line)
+                    if(string[0]==search):
+                        print("Number has been found")
+                        flag=1
+                        break
 
+    if (flag==0):
+            print("number not found")
+    else:
+            print("found")
+
+            
+
+    
 if(inp == 1):
     add()
 if(inp==2):
