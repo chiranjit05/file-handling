@@ -101,11 +101,11 @@ def delete():
             string = line.split(".")
             for line in string:
                 string=line.split(";")
-                
-                for line in string:
+                #for line in string:
                 #print(line)
-                    if(string[0] !=delete):
-                        f1.write(line)
+                if(string[0] !=delete):
+                    f1.write(line+'.')
+                    #break
                         
     f1.close()
     os.remove("file1.log")
