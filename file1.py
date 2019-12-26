@@ -1,3 +1,4 @@
+
 import os
 
 print("Enter 1 to add data.")
@@ -15,25 +16,25 @@ def extra():
         update()
     
 def add():
+    
+        f1=open("file1.log","a") #opening the file
+                                            #and apending data instead of write the data
         n=int(input("how many entries do u want to make : "))
         for i in range(n):
             roll=input("Enter the roll no : ")
             name=input("Enter he name : ")
 
             add=input("Enter the address : ")
-
-
-
-        f1=open("file1.log","a") #opening the file
+            f1=open("file1.log","a") #opening the file
                                             #and apending data instead of write the data
-
-        f1.write(roll)
-        f1.write(";")
-        f1.write(name)
-        f1.write(";")
-        f1.write(add)
-        f1.write(".")
-        f1.close
+        
+            f1.write(roll)
+            f1.write(";")
+            f1.write(name)
+            f1.write(";")
+            f1.write(add)
+            f1.write(".")
+            f1.close
         
 
  
@@ -56,13 +57,18 @@ def search():
             string = line.split(".")
             for line in string:
                 string=line.split(";")
-                print(line)
+                
                 for line in string:
                 #print(line)
                     if(string[0]==search):
                         print("Number has been found")
                         flag=1
                         break
+                    else:
+                        flag=flag
+        if(flag==0):
+            print("file not found")
+            
 def update():
     f1=open("file1.log",'r')
     f2=open("file2.log",'w+')
@@ -91,9 +97,8 @@ def update():
 
 
             
-
-    if(inp == 1):
-        add()
+if(inp == 1):
+    add()
 if(inp==4):
     #print("this part of the code has ben reached")
     showall()
@@ -101,4 +106,7 @@ if(inp==5):
         search()
 if(inp==2):
         update()
+if(inp==3):
+    delete()
     
+
