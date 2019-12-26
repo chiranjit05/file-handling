@@ -17,7 +17,7 @@ def extra():
     
 def add():
     
-        f1=open("file1.log","a") #opening the file
+        f=open("file1.log","a") #opening the file
                                             #and apending data instead of write the data
         n=int(input("how many entries do u want to make : "))
         for i in range(n):
@@ -25,23 +25,23 @@ def add():
             name=input("Enter he name : ")
 
             add=input("Enter the address : ")
-            f1=open("file1.log","a") #opening the file
+            f=open("file1.log","a") #opening the file
                                             #and apending data instead of write the data
         
-            f1.write(roll)
-            f1.write(";")
-            f1.write(name)
-            f1.write(";")
-            f1.write(add)
-            f1.write(".")
-            f1.close
+            f.write(roll)
+            f.write(";")
+            f.write(name)
+            f.write(";")
+            f.write(add)
+            f.write(".")
+        f.close()
         
 
  
 
 def showall():
-    f2=open("file1.log","r")
-    s=f2.read()
+    f=open("file1.log","r")
+    s=f.read()
     s=s.replace(";","\t")
     s=s.replace(";","\t")
     s=s.replace(".","\n")
@@ -91,8 +91,26 @@ def update():
     os.remove("file1.log")
     os.rename(r'C:\Users\admin\Desktop\chir\file2.log',r'C:\Users\admin\Desktop\chir\file1.log')
         
-                        
 
+def delete():
+    delete=input("enter the number to be delete : ")
+    
+    f1=open("file2.log",'w+')
+    with open("file1.log", "r",encoding='utf-8') as  f:
+        for line in f:
+            string = line.split(".")
+            for line in string:
+                string=line.split(";")
+                
+                for line in string:
+                #print(line)
+                    if(string[0] !=delete):
+                        f1.write(line)
+                        
+    f1.close()
+    os.remove("file1.log")
+    os.rename(r'C:\Users\admin\Desktop\chir\file2.log',r'C:\Users\admin\Desktop\chir\file1.log')
+    
 
 
 
